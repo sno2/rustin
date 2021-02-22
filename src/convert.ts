@@ -7,7 +7,7 @@ import { Result } from "./result.ts";
  * guaranteed that this will happen, prefer to use `TryInto` which will return
  * a `Result`.
  * 
- * # Example
+ * ## Example
  * ```
  * class Sum implements Into<string | number, "string" | "number"> {
  *   a: number;
@@ -43,7 +43,7 @@ export abstract class Into<T, H extends string> {
  * This returns a `Result` which may or may not be successful. If the value is
  * guaranteed to return, prefer to use `Into` which will always return a value.
  * 
- * # Example
+ * ## Example
  * ```
  * class Sum implements TryInto<string | number, string, "string" | "number"> {
  *   a: number;
