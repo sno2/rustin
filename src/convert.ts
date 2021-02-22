@@ -25,8 +25,8 @@ import { Result } from "./result.ts";
  * }
  * 
  * const sum = new Sum(2, 3);
- * console.log(sum.into("number")); // > 5
- * console.log(sum.into("string")); // > 2 + 3 = 5
+ * console.log(sum.into("number")); // 5
+ * console.log(sum.into("string")); // 2 + 3 = 5
  * ```
  */
 export abstract class Into<T, H extends string> {
@@ -63,12 +63,12 @@ export abstract class Into<T, H extends string> {
  * }
  * 
  * const sum = new Sum(2, 3);
- * console.log(sum.try_into("number")); // > { ok: 5 }
- * console.log(sum.try_into("string")); // > { ok: 2 + 3 = 5 }
+ * console.log(sum.try_into("number")); // { ok: 5 }
+ * console.log(sum.try_into("string")); // { ok: 2 + 3 = 5 }
  * 
  * sum.a = 50;
- * console.log(sum.try_into("number")); // > { err: "number too big" }
- * console.log(sum.try_into("string")); // > { err: "number too big" }
+ * console.log(sum.try_into("number")); // { err: "number too big" }
+ * console.log(sum.try_into("string")); // { err: "number too big" }
  * ```
  */
 export abstract class TryInto<T, E, H extends string> {
