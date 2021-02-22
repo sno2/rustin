@@ -5,7 +5,7 @@ import { option } from "../mod.ts";
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
+ * const ok: Ok<number> = { ok: 50 };
  * ```
  */
 export type Ok<T> = { ok: T };
@@ -14,7 +14,7 @@ export type Ok<T> = { ok: T };
  * 
  * ## Example
  * ```
- * const err: result.Err<string> = { err: "some error" };
+ * const err: Err<string> = { err: "some error" };
  * ```
  */
 export type Err<E> = { err: E };
@@ -24,11 +24,11 @@ export type Err<E> = { err: E };
  * ## Examples
  * `Ok` (success value):
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
+ * const ok: Ok<number> = { ok: 50 };
  * ```
  * `Err` (error value):
  * ```
- * const err: result.Err<string> = { err: "some error" };
+ * const err: Err<string> = { err: "some error" };
  * ```
  */
 export type Result<T, E> = Ok<T> | Err<E>;
@@ -38,7 +38,7 @@ export type Result<T, E> = Ok<T> | Err<E>;
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
+ * const ok: Ok<number> = { ok: 50 };
  * console.log(result.isOk(ok)); // true
  * ```
  */
@@ -52,7 +52,7 @@ export function isOk<T, E>(self: Result<T, E>): boolean {
  * 
  * ## Example
  * ```
- * const err: result.Err<string> = { err: "some error" };
+ * const err: Err<string> = { err: "some error" };
  * console.log(result.isErr(err)); // true
  * ```
  */
@@ -67,7 +67,7 @@ export function isErr<T, E>(self: Result<T, E>): boolean {
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
+ * const ok: Ok<number> = { ok: 50 };
  * console.log(result.ok(ok)); // 50
  * console.log(result.err(ok)); // null
  * ```
@@ -85,7 +85,7 @@ export function ok<T, E>(self: Result<T, E>): option.Option<T> {
  * 
  * ## Example
  * ```
- * const err: result.Err<string> = { err: "some error" };
+ * const err: Err<string> = { err: "some error" };
  * console.log(result.err(err)); // "some error"
  * console.log(result.ok(err)); // null
  * ```
@@ -100,8 +100,8 @@ export function err<T, E>(self: Result<T, E>): option.Option<E> {
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
- * const err: result.Err<string> = { err: "some error" };
+ * const ok: Ok<number> = { ok: 50 };
+ * const err: Err<string> = { err: "some error" };
  * 
  * console.log(result.contains(ok, 50)); // true
  * console.log(result.contains(ok, 25)); // false
@@ -118,8 +118,8 @@ export function contains<T, E>(self: Result<T, E>, value: T): boolean {
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
- * const err: result.Err<string> = { err: "some error" };
+ * const ok: Ok<number> = { ok: 50 };
+ * const err: Err<string> = { err: "some error" };
  * 
  * console.log(result.containsErr(err, "some error")); // true
  * console.log(result.containsErr(err, 50)); // false
@@ -137,16 +137,16 @@ export function containsErr<T, E>(self: Result<T, E>, value: E): boolean {
  * Because this function may panic, its use is generally discouraged. Instead,
  * prefer to handle the `Err` case explicitly.
  * 
- * ## Panics
- * Panics if the value is an `Err`, with a panic message provided by the `Err`'s
+ * ## Throws
+ * Throws if the value is an `Err`, with a panic message provided by the `Err`'s
  * value.
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
+ * const ok: Ok<number> = { ok: 50 };
  * console.log(result.unwrap(ok)); // 50
  * 
- * const err: result.Err<string> = { err: "some error" };
+ * const err: Err<string> = { err: "some error" };
  * console.log(result.unwrap(err)); // throws
  * ```
  */
@@ -160,17 +160,17 @@ export function unwrap<T, E>(self: Result<T, E>): T {
 /**
  * Returns the contained `Ok` value.
  * 
- * ## Panics
- * Panics if the value is an `Err`, with a panic message including the passed
+ * ## Throws
+ * Throws if the value is an `Err`, with a panic message including the passed
  * message, and the content of the `Err`.
  * 
  * ## Example
  * ```
- * const ok: result.Ok<number> = { ok: 50 };
- * console.log(result.unwrap(ok)); // 50
+ * const ok: Ok<number> = { ok: 50 };
+ * console.log(result.expect(ok, "whoops")); // 50
  * 
- * const err: result.Err<string> = { err: "some error" };
- * console.log(result.unwrap(err)); // throws with custom message
+ * const err: Err<string> = { err: "some error" };
+ * console.log(result.expect(err, "whoops")); // throws with custom message
  * ```
  */
 export function expect<T, E>(self: Result<T, E>, msg: string): T {
