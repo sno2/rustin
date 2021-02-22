@@ -4,7 +4,7 @@
 Rust provides a super useful std library which we should use to our advantage. While this can make our code more verbose, it ensures that we also don't end up with a mess in the end.
 
 ## Docs
-Instead of a long list of what you can do here, I'll point you to the [docs](). There's a much nicer layout, examples, and proper styling.
+Instead of a long list of what you can do here, I'll point you to the [docs](https://doc.deno.land/https/deno.land/x/rustin/mod.ts). There's a much nicer layout, examples, and proper styling.
 
 ## Tests
 Everything, in true Rust fashion, comes complete with a test to make sure:
