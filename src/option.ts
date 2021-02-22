@@ -109,7 +109,7 @@ export function unwrap<T>(self: Option<T>): T {
  * 
  * ## Example
  * ```
- const some: Some<number> = 50;
+ * const some: Some<number> = 50;
  * console.log(option.expect(some, "whoops")); // 50
  * 
  * const none: None = null;
