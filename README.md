@@ -9,9 +9,11 @@ Yep typescript is a big help for some things, this just adds that little bit of 
 The goal of rustin is **not** to replicate the [core] crate in its entirety, this wouldn't be too useful. It's also **not** to copy each rust [core] feature exactly as it is, that wouldn't be very idiomatic.
 
 Instead, what this **is**, is an attempt to bring some rust [core] crate features that:
+
 - make sense
 - are useful
 - fit the language
+
 to typescript + javascript.
 
 They may come with more or less features the rust [core] counterpart, have different workings, and in super rare cases have different names (if they overlap with existing typescript / javascript types).
@@ -23,6 +25,7 @@ Instead of a long list of what you can do here, I'll point you to the [docs]. Th
 
 ## Tests
 Everything, in true Rust fashion, comes complete with a test to make sure:
+
 - it works
 - there's no regression
 
