@@ -1,4 +1,4 @@
-import { option } from "../mod.ts";
+import { Option, Some, None } from "../mod.ts";
 
 /**
  * Represents a success.
@@ -74,9 +74,9 @@ export namespace Result {
    * console.log(result.err(ok)); // null
    * ```
    */
-  export function ok<T, E>(self: Result<T, E>): option.Option<T> {
-    if(isOk(self)) return (self as Ok<T>).ok as option.Some<T>;
-    return null as option.None;
+  export function ok<T, E>(self: Result<T, E>): Option<T> {
+    if(isOk(self)) return (self as Ok<T>).ok as Some<T>;
+    return null as None;
   }
 
   /**
@@ -92,9 +92,9 @@ export namespace Result {
    * console.log(result.ok(err)); // null
    * ```
    */
-  export function err<T, E>(self: Result<T, E>): option.Option<E> {
-    if(isErr(self)) return (self as Err<E>).err as option.Some<E>;
-    return null as option.None;
+  export function err<T, E>(self: Result<T, E>): Option<E> {
+    if(isErr(self)) return (self as Err<E>).err as Some<E>;
+    return null as None;
   }
 
   /**
