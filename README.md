@@ -24,7 +24,7 @@ Personally, I'd like this to be something that is super easy to use alongside th
 Instead of a long list of what you can do here, I'll point you to the [docs]. There's a much nicer layout, examples, and proper styling.
 
 ## Tests
-Everything, in true Rust fashion, comes complete with a test to make sure:
+Everything, in true rust fashion, comes complete with a test to make sure:
 
 - it works
 - there's no regression
